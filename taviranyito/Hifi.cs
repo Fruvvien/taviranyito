@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace taviranyito
 {
-    internal class Tv
+    internal class Hifi
     {
-  
+        public Hifi() { }
 
-        public Tv(){}
 
         public override string ToString()
         {
-            return "Tv";
+            return "Hifi";
         }
-
     }
+
+   
 }

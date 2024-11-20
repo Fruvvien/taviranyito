@@ -9,51 +9,55 @@ namespace taviranyito
 {
     internal class RemoteControl <T>
     {
-        private Tv tv;
+        private T eszkoz;
 
-        public RemoteControl(Tv tv)
+        public RemoteControl(T eszkoz)
         {
-            this.tv = tv;
+            this.eszkoz = eszkoz;
+
+            
         }
 
         public void Power_On() {
-
-
-            tv.BekapcsolvaVanE = true;
-            Console.WriteLine("Be van kapcsolva");
-        
-        
+            if(eszkoz.GetType() == typeof(Hifi))
+            {
+                Console.WriteLine("Be van kapcsolva a Hifi");
+            }
+            if(eszkoz.GetType() == typeof(Tv))
+            {
+                Console.WriteLine("Be van kapcsolva a Tv");
+            }
         }
 
         public void Power_Off() {
-            tv.BekapcsolvaVanE = false;
-            Console.WriteLine("ki van kapcsolva"); 
-        
+            if (eszkoz.GetType() == typeof(Hifi))
+            {
+                Console.WriteLine("Ki van kapcsolva a Hifi");
+            }
+            if (eszkoz.GetType() == typeof(Tv))
+            {
+                Console.WriteLine("Ki van kapcsolva a Tv");
+            }
+
         }
 
         public void Change_Channel(int channel)
         {
 
-            tv.Channel = channel;
             Console.WriteLine($"csatorna váltás az {channel}-re");
 
         }
 
         public void Volume_Up()
         {
-            tv.Volume++;
-            Console.WriteLine($"Növelve a hangerő, aktuális: {tv.Volume} ");
+            Console.WriteLine($"Növelve a hangerő, aktuális ");
         }
         public void Volume_Down()
         {
-            tv.Volume--;
-            Console.WriteLine($"Csökkentve a hangerő, aktuális: {tv.Volume} ");
+            Console.WriteLine($"Csökkentve a hangerő, aktuális ");
         }
 
-        public override string ToString()
-        {
-            return $"adás: {tv.Channel}, hangerő: {tv.Volume}, be van e kapcsolva? {tv.BekapcsolvaVanE}";
-        }
+        
 
     }
 
